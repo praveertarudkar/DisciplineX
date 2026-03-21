@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Stores user statistics and unlocked badges.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique ID of the user." },
+        "email": { "type": "string", "format": "email", "description": "The email address of the user." },
+        "displayName": { "type": "string", "description": "The display name of the user." },
+        "photoURL": { "type": "string", "format": "uri", "description": "The URL of the user's profile picture." },
+        "createdAt": { "type": "number", "description": "The timestamp when the profile was created." },
+        "longestStreak": { "type": "number", "description": "The longest streak achieved by the user in days." },
+        "totalRelapses": { "type": "number", "description": "The total number of relapses logged by the user." },
+        "badges": { "type": "array", "items": { "type": "string" }, "description": "A list of unlocked badge IDs." }
+      },
+      "required": ["uid", "email", "displayName", "createdAt", "longestStreak", "totalRelapses", "badges"]
+    },
+    "Streak": {
+      "title": "Streak",
+      "description": "Represents a single streak attempt.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "The unique ID of the streak." },
+        "userId": { "type": "string", "description": "The ID of the user who owns this streak." },
+        "startDate": { "type": "number", "description": "The timestamp when the streak started." },
+        "endDate": { "type": "number", "description": "The timestamp when the streak ended (if relapsed)." },
+        "status": { "type": "string", "enum": ["active", "relapsed"], "description": "The current status of the streak." },
+        "relapseReason": { "type": "string", "description": "The reason provided for the relapse." },
+        "duration": { "type": "number", "description": "The duration of the streak in milliseconds." }
+      },
+      "required": ["id", "userId", "startDate", "status", "duration"]
+    },
+    "CommunityPost": {
+      "title": "Community Post",
+      "description": "A post shared by a user in the community feed.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "The unique ID of the post." },
+        "userId": { "type": "string", "description": "The ID of the user who created the post." },
+        "username": { "type": "string", "description": "The anonymous or display name of the user." },
+        "content": { "type": "string", "description": "The content of the post." },
+        "streakDays": { "type": "number", "description": "The number of days in the user's current streak at the time of posting." },
+        "likes": { "type": "array", "items": { "type": "string" }, "description": "A list of user IDs who liked the post." },
+        "createdAt": { "type": "number", "description": "The timestamp when the post was created." }
+      },
+      "required": ["id", "userId", "username", "content", "streakDays", "likes", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile data."
+    },
+    "/streaks/{streakId}": {
+      "schema": "Streak",
+      "description": "Individual streak records."
+    },
+    "/posts/{postId}": {
+      "schema": "CommunityPost",
+      "description": "Community feed posts."
+    }
+  }
+}

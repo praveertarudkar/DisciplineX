@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-primary: #10b981; /* Emerald 500 */
+  --color-brand-secondary: #3b82f6; /* Blue 500 */
+  --color-brand-accent: #f59e0b; /* Amber 500 */
+  --color-brand-danger: #ef4444; /* Red 500 */
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-950 text-zinc-100 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@utility glass-panel {
+  @apply bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl;
+}
+
+@utility btn-primary {
+  @apply px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold rounded-xl transition-all active:scale-95 shadow-lg shadow-emerald-900/20;
+}
+
+@utility btn-secondary {
+  @apply px-6 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-semibold rounded-xl transition-all active:scale-95 border border-white/5;
+}
+
+@utility btn-danger {
+  @apply px-6 py-3 bg-red-600/10 hover:bg-red-600 text-red-500 hover:text-white font-semibold rounded-xl transition-all active:scale-95 border border-red-500/20;
+}
+
+@utility streak-card {
+  @apply relative overflow-hidden p-8 glass-panel;
+}
+
+@utility streak-card-before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent pointer-events-none;
+}
