@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🚀 DisciplineX
 
-# Run and deploy your AI Studio app
+DisciplineX is a simple and effective productivity web application designed to help users stay consistent, manage tasks, and build daily discipline.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/b2d4c3bc-0e78-47e8-8ddd-309ef5a8a8fa
+## 📌 Overview
 
-## Run Locally
+DisciplineX focuses on improving productivity through task tracking and consistent daily actions. It provides a clean and minimal interface to manage tasks efficiently.
 
-**Prerequisites:**  Node.js
+---
 
+## ✨ Features
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- ✅ Add and manage daily tasks  
+- 🗑️ Delete tasks easily  
+- ✔️ Mark tasks as completed  
+- 💾 Data persistence using Local Storage  
+- 🎯 Clean and user-friendly interface  
+
+---
+
+## 🛠️ Tech Stack
+
+- HTML  
+- CSS  
+- JavaScript  
+- Local Storage  
+
+---
+
+## 📂 Project Structure
